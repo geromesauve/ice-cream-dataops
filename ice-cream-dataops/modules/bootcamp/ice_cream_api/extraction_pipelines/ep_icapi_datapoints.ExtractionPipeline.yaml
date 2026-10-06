@@ -1,0 +1,31 @@
+externalId: ep_icapi_datapoints
+name: Ice Cream API Data Points
+dataSetExternalId: ds_icapi
+description: Extraction pipeline monitoring the Ice Cream Factory API datapoints extractor. Tracks ingestion of time series datapoints from the Ice Cream Factory API into CDF RAW.
+rawTables:
+  - dbName: ice-cream-factory-db
+    tableName: assets
+source: ice-cream-factory-api
+documentation: |
+  ## Ice Cream API Datapoints Extractor
+
+  This extraction pipeline monitors the Cognite Function `icapi_datapoints_extractor`
+  which extracts time series datapoints from the Ice Cream Factory API.
+
+  ### Source
+  The Ice Cream Factory REST API provides OEE-related time series data
+  (status, count, good, planned_status) for each asset/line.
+
+  ### Target
+  - RAW database: `ice-cream-factory-db`
+  - RAW table: `assets`
+  - CDF Time Series: ingested via the datapoints extractor function
+
+  ### Schedule
+  The function runs on a scheduled basis to keep datapoints up to date.
+
+  ### Contact
+  For issues, check the Cognite Functions logs for `icapi_datapoints_extractor`.
+schedule: Continuous
+notificationConfig:
+  allowedNotSeenRangeInMinutes: 120
