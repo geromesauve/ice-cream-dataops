@@ -151,6 +151,7 @@ activemq-data/
 
 # Environments
 .env
+.env.*
 .envrc
 .venv
 env/
@@ -158,6 +159,11 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Cognite Toolkit build artifacts
+build/
+build_info.*.yaml
+function_local_venvs/
 
 # Spyder project settings
 .spyderproject
