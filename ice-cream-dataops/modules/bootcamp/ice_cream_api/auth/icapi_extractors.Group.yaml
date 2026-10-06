@@ -4,8 +4,7 @@ capabilities:
   - datasetsAcl:
       actions: [READ]
       scope:
-        idScope:
-          ids: [{{ icapi_ds_external_id }}]
+        all: {}
   - dataModelInstancesAcl:
       actions: [READ, WRITE]
       scope:
@@ -15,20 +14,17 @@ capabilities:
       scope:
         all: {}
   - extractionPipelinesAcl:
-      actions: [READ]
+      actions: [READ, WRITE]
       scope:
-        datasetScope:
-          ids: [{{ icapi_ds_external_id }}]
+        all: {}
   - extractionRunsAcl:
       actions: [READ, WRITE]
       scope:
-        datasetScope:
-          ids: [{{ icapi_ds_external_id }}]
+        all: {}
   - filesAcl:
       actions: [READ, WRITE]
       scope:
-        datasetScope:
-          ids: [{{ icapi_ds_external_id }}]
+        all: {}
   - functionsAcl:
       actions: [READ, WRITE]
       scope:
@@ -48,9 +44,7 @@ capabilities:
   - rawAcl:
       actions: [LIST, READ, WRITE]
       scope:
-        tableScope:
-          dbsToTables:
-            ice-cream-factory-db: [assets]
+        all: {}
   - sessionsAcl:
       actions: [LIST, CREATE, DELETE]
       scope:
